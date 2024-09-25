@@ -1,0 +1,55 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0 auto;
+    padding: 0;
+    line-height: 1.2;
+    background-color: white;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+}
+
+.header{
+     font-size: 3.5rem;
+     color: blueviolet;
+}
+
+iframe {
+    border: none;
+    margin-bottom: 100px;
+    margin-left: 20px;
+}
+
+.container {
+    padding: 20px 0;   
+}
+
+.Start {
+    padding: 20px 60px;
+    background-color: hsl(from rgb(223, 22, 173) h s l);
+    border-radius: 15px;
+    border-color: azure;
+    color: whitesmoke;
+    font-size: 3rem;
+}
+
+.Start:hover {
+    background-color: green;
+}
+
+#playerDisplay {
+    padding-top: 40px;
+    font-size: 2.5rem;
+    color: goldenrod;
+}
+
+#computerDisplay {
+    padding-top: 10px;
+    font-size: 2.5rem;
+    color: rgb(116, 99, 4);
+}
+
