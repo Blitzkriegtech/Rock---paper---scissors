@@ -1,27 +1,106 @@
-@import url('https://fonts.cdnfonts.com/css/new-super-mario-font-u');
+@import url(https://db.onlinewebfonts.com/c/4c19fc875e7ba1e6831129de3ab5ac0b?family=Retro+Gaming);
 
 * {
-    font-family: New Super Mario Font U, sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Retro Gaming', sans-serif;
+    color: white;
+}
+
+body{
+    background-image: url(images/web-image.jpg);
+    background-size: cover;
+    background-position: center top;
+}
+
+/* Header part - styles */
+header > h1 {
+    text-align: center;
+    padding: 40px;
+    margin: 0px 5px;
+    font-size: 50px;
+    /* border: 1px solid red; */
+}
+
+/* Score-board and its children styles */
+.score-board {
+    text-align: center;
+    font-size: 30px;
+    border: 8px dashed goldenrod;
+    width: 300px;
+    height: 150px;
     margin: 0 auto;
-    padding: 0;
-    line-height: 1.2;
-    background-color: white;
-    max-width: 1100px;
-    /* border: 2px solid; */
+    border-radius: 8px;
+    padding: 10px;
+    position: relative;
 }
 
-.header {
-    height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+span {
+    position: relative;
+    top: 8px;
+    font-size: 80px;
 }
 
-.box {
-    font-size: larger;
-    color: blue;
+.tags {
+    background-color: crimson;
+    width: 100px;
+}
+
+#user-label {
+    position: absolute;
+    top: 50px;
+    left: -60px;
+}
+
+#comp-label {
+    position: absolute;
+    top: 50px;
+    right: -60px;
+}
+
+/* results styles */
+
+.result {
+    text-align: center;
+    padding:10px;
+    margin: 50px;
+    border: 1px solid red;
+}
+
+#resultText {
+    font-size: 40px;
+}
+
+/* Choices styles */
+.choices {
     display: flex;
-    justify-content: space-between;
+    justify-content:center;
     align-items: center;
+    border: 1px solid red;
+    gap:40px;
+}
+
+.choice {
+    border-radius: 20%;
+    padding: 20px 10px;
+    border-color: rgb(235, 24, 129);
+    font-size: 150px;
+}
+
+.choice:hover {
+    cursor: grabbing;
+    color: gold;
+    box-shadow: 0 5px 30px yellow;
+}
+
+/* Text */
+
+.text {
+    text-align: center;
+    margin-top: 50px;
+    padding: 40px;
+    font-size: 60px;
+    color: palevioletred;
 }
 
