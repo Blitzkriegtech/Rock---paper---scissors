@@ -90,16 +90,23 @@ function playGame() {
    const computerSelection = getComputerChoice();
    playRound(humanSelection, computerSelection);
 
-   if (humanScore === 5) {
-      console.log('Victory 😍');
-      return;
+   // if (humanScore === 5) {
+   //    console.log('Victory 😍');
+   //    return;
+     
       
-   } else if (computerScore === 5)
-   {
-      console.log(`You failed this city 👻 GAME OVER ☠️`);
-      return;
-   }
+   // } else if (computerScore === 5)
+   // {
+   //    console.log(`You failed this city 👻 GAME OVER ☠️`);
+   //    return;
+
+   // }
    playGame();
+   
       
 }
 // playGame();
+
+function playGame () {
+   
+}
