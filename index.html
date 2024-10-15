@@ -4,20 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="main.css" />
+    <script src="main.js" defer></script>
     <title>JaJangKen</title>
 </head>
 <body>
+    <header>
+    <h1 class="header">ROCK 🤪 PAPER 😵 SCISSOR</h1>
+    </header>
     
-    <h1 class="header">ROCK ☠️ PAPER ☠️ SCISSORS</h1>
-    
-    <div class="container">
-        <div class="box">
-    <p class="break">Classic console game.</p>
-    <p class="break">Please open your browser`s console.</p> 
-    
-    <script src="main.js"></script>
-        </div>
-    </div>
+    <section class="score-board">
+        <div class="tags" id="user-label">HERO</div>
+        <span id="hero">0</span><span>:</span><span id="ai">0</span>
+        <div class="tags" id="comp-label">AI</div>
+        
+    </section>
+
+    <section class="result">
+        <p id="resultText">GAME ON!</p>
+    </section>
+
+    <section class="choices">
+        <button class="choice" id="rock">🪨</button>
+        <button class="choice" id="paper">📜</button>
+        <button class="choice" id="scissors">✂️</button>
+    </section>
+
+    <section class="para">
+        <p class="text"> 👻 Grab a weapon 👻.</p>
+    </section>
+
+
 </body>
 
 </html>
