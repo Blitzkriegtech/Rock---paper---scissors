@@ -81,7 +81,7 @@ function displayVictoryMessage(message) {
    paper_btn_section.disabled = true;
    scissor_btn_section.disabled = true;
 
-   setTimeout(resetGame, 5000); // Reset the game after 3 sec.
+   setTimeout(resetGame, 5000); // Reset the game after 5 sec.
 }
 
 // Function to reset the game
