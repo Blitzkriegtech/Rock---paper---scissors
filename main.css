@@ -65,7 +65,7 @@ span {
     text-align: center;
     padding:10px;
     margin: 50px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 #resultText {
@@ -75,9 +75,10 @@ span {
 /* Choices styles */
 .choices {
     display: flex;
+    flex-wrap: wrap;
     justify-content:center;
     align-items: center;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     gap:40px;
 }
 
@@ -86,6 +87,7 @@ span {
     padding: 20px 10px;
     border-color: rgb(235, 24, 129);
     font-size: 150px;
+
 }
 
 .choice:hover {
@@ -94,13 +96,24 @@ span {
     box-shadow: 0 5px 30px yellow;
 }
 
+.choice:active {
+    background-color: hsl(295, 92%, 75%);
+}
+
 /* Text */
 
 .text {
     text-align: center;
-    margin-top: 50px;
-    padding: 40px;
-    font-size: 60px;
+    margin-top: 10px;
+    padding: 20px;
+    font-size: 20px;
     color: palevioletred;
 }
 
+/* div  final result*/
+
+.ultResult {
+    text-align: center;
+    font-size: 80px;
+    padding: 10px;
+}
