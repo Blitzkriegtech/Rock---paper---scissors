@@ -1,8 +1,17 @@
 
 //declarations of some variable in global scope
 
-let humanScore = 0;
-let computerScore = 0;
+let heroScore = 0;
+let aiScore = 0;
+let scoreThreshold = 5;
+
+const rock_btn_section = document.querySelector('#rock');
+const paper_btn_section = document.querySelector('#paper');
+const scissor_btn_section = document.querySelector('#scissor');
+const  hero_score_span = document.querySelector('#hero');
+const ai_score_span = document.querySelector('#ai');
+const result_text_p = document.querySelector('#resultText');
+const final_text_p = document.querySelector('.ultResult');
 
 //function to get AI input/choice
 
@@ -20,43 +29,80 @@ function getComputerChoice () {
          randomNumber = "Scissor";
          break;
    }
-   const compChoice = randomNumber;
-   return compChoice;
-}
-
-//Function to get human input
-
-function getHumanChoice() {
-   const humanInput = prompt(`Please enter your choice`);
-   const humanChoice = humanInput.charAt(0).toUpperCase() + humanInput.slice(1);
-   return humanChoice;
+   return randomNumber;
 }
 
 //Functions for conditions (win, draw, and lose)
 
 function win(humanChoice, compChoice) {
-   humanScore++;
-   console.log(`You use ${humanChoice} and WON against AI\`s ${compChoice}.`);
-   console.log(`Your score: ${humanScore}`);
-   console.log(`AI score: ${computerScore}`);
+   heroScore++;
+   result_text_p.textContent = `You used ${humanChoice} and destroyed AI\`s ${compChoice}.`;
+   hero_score_span.textContent = heroScore;
+   ai_score_span.textContent = aiScore;
+   checkForVictory();
 }
 
 function lose(humanChoice, compChoice) {
-   computerScore++;
-   console.log(`You use ${humanChoice} and was beaten by AI\`s ${compChoice} you LOSE.`);
-   console.log(`Your score: ${humanScore}`);
-   console.log(`AI score: ${computerScore}`);
+   aiScore++;
+   result_text_p.textContent = `You used ${humanChoice} and was trashed by AI\`s ${compChoice} you LOSE.`;
+   hero_score_span.textContent = heroScore;   
+   ai_score_span.textContent = aiScore;
+   checkForVictory();
 }
-
 function draw(humanChoice, compChoice) {
    
-   console.log(`You use ${humanChoice} and AI use ${compChoice} nothing happened its a DRAW!`);
-   console.log(`Your score: ${humanScore}`);
-   console.log(`AI score: ${computerScore}`);
+   result_text_p.textContent = `You used ${humanChoice} and AI used ${compChoice} nothing happened, its a DRAW!`;
+   hero_score_span.textContent = heroScore;
+   ai_score_span.textContent = aiScore;
+}
+
+// checkForVictory function
+
+function checkForVictory(){
+   if(heroScore >= scoreThreshold) {
+      displayVictoryMessage('You WON, What a CHAD!🎊🎊🎊');
+      final_text_p.style.color = 'gold';
+   } else if (aiScore >= scoreThreshold) {
+      displayVictoryMessage('LOSER🤪🤪🤪');
+      final_text_p.style.color = 'crimson'
+
+   }
+}
+
+// Function to display the victory message and reset the game
+
+function displayVictoryMessage(message) {
+   final_text_p.textContent = message;
+   final_text_p.style.display = 'block';
+
+// Disable the buttons to stop the game
+
+   rock_btn_section.disabled = true;
+   paper_btn_section.disabled = true;
+   scissor_btn_section.disabled = true;
+
+   setTimeout(resetGame, 5000); // Reset the game after 3 sec.
+}
+
+// Function to reset the game
+
+function resetGame() {
+   heroScore = 0;
+   aiScore = 0;
+   hero_score_span.textContent = heroScore;
+   ai_score_span.textContent = aiScore;
+   result_text_p.textContent = ''; // Clear the result msg
+   final_text_p.style.display = 'none'; // Hide the final text
+
+// Enable the buttons again to allow new game rounds.
+   rock_btn_section.disabled = false;
+   paper_btn_section.disabled = false;
+   scissor_btn_section.disabled = false;
 }
 
 // Function for a single round
-   function playRound (humanChoice, compChoice){
+   function playRound (humanChoice){
+      const compChoice = getComputerChoice();
 
       switch(humanChoice + compChoice){
          case "RockScissor":
@@ -76,19 +122,39 @@ function draw(humanChoice, compChoice) {
          case "ScissorScissor":
             draw(humanChoice, compChoice);
             break;
-      }
-   
-      
+      };      
    }
 
-   //Function to start the game.
+   //Function to start the game and get humanChoice. (New)
+function playGame () {
 
-function playGame() {
+   rock_btn_section.addEventListener('click', () => {
+      playRound("Rock");
+   });
+
    
-   console.log('Game ON!');
-   const humanSelection = getHumanChoice();
-   const computerSelection = getComputerChoice();
-   playRound(humanSelection, computerSelection);
+   paper_btn_section.addEventListener('click', () => {
+      playRound("Paper");
+   });
+
+   
+   scissor_btn_section.addEventListener('click', () => {
+      playRound("Scissor");
+   });
+
+}
+playGame();
+
+
+
+
+   // * Old code
+
+   // function playGame() {
+   // console.log('Game ON!');
+   // const humanSelection = getHumanChoice();
+   // const computerSelection = getComputerChoice();
+   // playRound(humanSelection, computerSelection);
 
    // if (humanScore === 5) {
    //    console.log('Victory 😍');
@@ -100,13 +166,9 @@ function playGame() {
    //    console.log(`You failed this city 👻 GAME OVER ☠️`);
    //    return;
 
-   // }
-   playGame();
+   // // }
+   // playGame();
    
       
-}
+// }
 // playGame();
-
-function playGame () {
-   
-}
